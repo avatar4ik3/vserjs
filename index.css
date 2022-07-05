@@ -1,0 +1,97 @@
+@import url("https://fonts.googleapis.com/css?family=Gowun+Dodum:400");
+
+body {
+  background-color: #fbf9e0;
+  height: 100%;
+}
+
+html {
+  display: contents;
+  height: 100%;
+}
+
+main {
+  position: relative;
+  display: grid;
+  height: 100%;
+  grid-template-rows: 20% 50% auto;
+  justify-content: center;
+}
+
+.center {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+img {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.img-anim {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  animation: rotate 100s linear infinite;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+
+.innerText {
+  position: absolute;
+  text-align: center;
+  color: #edbc0e;
+  font-family: "Gowun Dodum";
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 130%;
+  width: 35%;
+  height: 30%;
+}
+
+.lowerText {
+  color: black;
+  font-family: "Gowun Dodum";
+  text-align: center;
+  font-size: 24px;
+  font-weight: 400;
+  align-self: flex-end;
+}
+
+.sign {
+  color: black;
+  font-family: "Gowun Dodum";
+  text-align: center;
+  font-size: 24px;
+  font-weight: 400;
+  align-self: flex-start;
+}
+
+
+@media screen and (max-width: 400px) {
+  .innerText {
+    font-size: 10px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .innerText {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .innerText {
+    font-size: 14px;
+  }
+}
