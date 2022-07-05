@@ -138,10 +138,12 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById("inner").innerText = ""
     if (id_state() == true) {
         document.getElementById("inner").innerText = "Венок расскажет тебе твой путь"
+        reveal_text()
         fill_local_storage()
     }
     else {
         on_image_click()
+        
     }
 
 }, false);
@@ -156,7 +158,7 @@ function rotate_image() {
 }
 
 function reveal_text() {
-    let element = document.querySelector('div#center > p')
+    let element = document.getElementById('inner')
     if (element.classList.contains('innerTextafter') == false) {
         define_inner_class(element)
     }
@@ -189,6 +191,8 @@ function on_image_click() {
         find_prediction()
         state = 1
     }
+    reveal_text()
+
 }
 function get_font_size(textLength) {
     const baseSize = 9
