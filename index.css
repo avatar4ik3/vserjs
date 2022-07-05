@@ -45,7 +45,14 @@ img {
   }
 }
 
-
+@keyframes reveal {
+  0%{
+    opacity: 0%;
+  }
+  100%{
+    opacity: 100%;
+  }
+}
 
 .innerText {
   position: absolute;
@@ -61,6 +68,23 @@ img {
   width: 35%;
   height: 30%;
 }
+
+.innerTextafter {
+  position: absolute;
+  color: #edbc0e;
+  font-family: "Gowun Dodum";
+  text-align: center;
+  font-size: min(2.5vw , 1.5vh);
+  font-weight: 400;
+  line-height: 130%;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 35%;
+  height: 30%;
+  animation: reveal 2s linear 1;
+}
+
 
 .lowerText {
   color: black;

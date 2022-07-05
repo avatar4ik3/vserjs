@@ -106,15 +106,36 @@ var source =
 
 var predictions = source.split('\n').filter(el => el)
 
+function observe_inner_text() {
+    const mutate = (mutations) => {
+        mutations.forEach((mutation) => {
+            console.log(mutation);
+            update_font_size();
+        });
+    };
+    const target = document.querySelector('div#center > p');
+    const observer = new MutationObserver(mutate);
+    const config = {
+        characterData: false,
+        attributes: false,
+        childList: true,
+        subtree: false
+    };
+
+    observer.observe(target, config);
+}
 
 function id_state() {
     return localStorage.getItem("id") == null
 }
 
+window.onloadeddata = () => {
+    console.log("loaded!")
+    reveal_text()
+    observe_inner_text()
+}
 document.addEventListener('DOMContentLoaded', function () {
-    document.getElementById("inner").addEventListener("DOMCharacterDataModified",function (event) {
-        update_font_size()
-    })
+    document.getElementById("inner").innerText = ""
     if (id_state() == true) {
         document.getElementById("inner").innerText = "Венок расскажет тебе твой путь"
         fill_local_storage()
@@ -122,7 +143,7 @@ document.addEventListener('DOMContentLoaded', function () {
     else {
         on_image_click()
     }
-    
+
 }, false);
 
 
@@ -134,6 +155,16 @@ function rotate_image() {
     element.className = 'img-anim'
 }
 
+function reveal_text() {
+    let element = document.querySelector('div#center > p')
+    if (element.classList.contains('innerTextafter') == false) {
+        define_inner_class(element)
+    }
+    element.className = 'innerTextafter'
+}
+function define_inner_class(element) {
+    element.classList.add('innerTextafter')
+}
 function define_image_class(element) {
     element.classList.add('img-anim')
 }
