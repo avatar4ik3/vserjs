@@ -1,8 +1,8 @@
 
 
 var state = 0;
-var source = 
-`Лучше зажечь маленькую свечку, чем всю жизнь проклинать темноту
+var source =
+    `Лучше зажечь маленькую свечку, чем всю жизнь проклинать темноту
 Удача придёт откуда не ждёте 
 Все неоконченные дела будут завершены 
 Яркое приключение уже поджидает вас 
@@ -112,8 +112,9 @@ function id_state() {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-    console.log(source)
-    console.log(predictions)
+    document.getElementById("inner").addEventListener("DOMCharacterDataModified",function (event) {
+        update_font_size()
+    })
     if (id_state() == true) {
         document.getElementById("inner").innerText = "Венок расскажет тебе твой путь"
         fill_local_storage()
@@ -121,6 +122,7 @@ document.addEventListener('DOMContentLoaded', function () {
     else {
         on_image_click()
     }
+    
 }, false);
 
 
@@ -156,4 +158,17 @@ function on_image_click() {
         find_prediction()
         state = 1
     }
+}
+function get_font_size(textLength) {
+    const baseSize = 9
+    if (textLength >= baseSize) {
+        textLength = baseSize - 2
+    }
+    const fontSize = baseSize - textLength
+    return `min(${fontSize}vw,${fontSize}vh)`
+}
+
+
+function update_font_size() {
+    document.getElementById('inner').style.fontSize = get_font_size()
 }
