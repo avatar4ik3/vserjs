@@ -1,4 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Gowun+Dodum:400");
+@import url('https://fonts.googleapis.com/css?family=Marck+Script:400');
+
 
 body {
   background-color: #fbf9e0;
@@ -57,10 +59,10 @@ img {
 .innerText {
   position: absolute;
   color: #edbc0e;
-  font-family: "Gowun Dodum";
+  font-family: "Marck Script";
+  font-weight: 400;
   text-align: center;
   font-size: min(2.5vw , 1.5vh);
-  font-weight: 400;
   line-height: 130%;
   top: 55%;
   left: 50%;
@@ -72,10 +74,10 @@ img {
 .innerTextafter {
   position: absolute;
   color: #edbc0e;
-  font-family: "Gowun Dodum";
+  font-family: "Marck Script";
+  font-weight: 400;
   text-align: center;
   font-size: min(2.5vw , 1.5vh);
-  font-weight: 400;
   line-height: 130%;
   top: 55%;
   left: 50%;
